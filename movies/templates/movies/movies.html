@@ -9,14 +9,21 @@
     <title>Movies</title>
 </head>
 <body>
-    <h1>Hello castorosa</h1>
-    <p>Get ready for the movies </p>
+    <h1>Hello {{user.firstName}}</h1>
+    <p>Welcome to the movie zone </p>
         <!--Let me loop throgh the lists of movies-->
         <ul>
             {% for movie in movies %}
-               <li>{{movie.title}}</li>
+               <li><a href="{% url 'detail' movie.id %}" style="text-decoration: none;color: black;">{{movie.title}} published in {{movie.year}}</a></li>
             {% endfor %}
         </ul>
+
+    <p>Note: Click any movie for the detail information...</p>
+    <br>
+    <!--The below link will go directly to the add section -->
+    <a href="/movies/add" style="text-decoration: none;">Add New Movie</a>
+
+        
 
 </body>
 </html>
